@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Portal | Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="card">
+        <h2 id="welcomeMsg">Welcome</h2>
+        <p style="color: #a0a0a0; margin-bottom: 2rem;">Access your profile and features below.</p>
+        
+        <button onclick="window.location.href='settings.html'">Profile Settings</button>
+        <button class="logout-btn" onclick="logout()">Logout Session</button>
+    </div>
+
+    <script>
+        const user = localStorage.getItem("sessionUser");
+        
+        if (user) {
+            document.getElementById('welcomeMsg').innerText = `Welcome, ${user}!`;
+        } else {
+            window.location.href = "index.html";
+        }
+
+        function logout() {
+            localStorage.removeItem("sessionUser");
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+</html>
